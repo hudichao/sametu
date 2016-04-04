@@ -1,0 +1,247 @@
+<html id="share-channel">
+<head>
+  <title>same图</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="mobile-agent" content="format=html5;url=http://ohsame.com/">
+  <meta name="renderer" content="webkit">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="shortcut icon" type="image/x-icon" href="./images/website/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="./images/website/favicon-192.png">
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" href="same.css">
+</head>
+<body>
+  <script>
+    (function() {
+      function getDefaultFontSize(pa){
+        pa= pa || document.body;
+        var who= document.createElement('div');
+        who.style.cssText='display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+        who.appendChild(document.createTextNode('M'));
+        pa.appendChild(who);
+        var fs= [who.offsetWidth, who.offsetHeight];
+        pa.removeChild(who);
+        return fs;
+      }
+    
+      var defaultFontSize = getDefaultFontSize()[1]
+    
+      function setRemUnit(){
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        var fontSize = Math.min(w, h)/32;
+        
+        fontSize *= 16/defaultFontSize
+        if(fontSize > 16) {
+          fontSize = 16;
+        }
+    
+        document.getElementsByTagName('html')[0].style.fontSize = fontSize + "px";
+      }
+      setRemUnit()
+      window.addEventListener("resize", setRemUnit);
+    
+      if( /Android/g.test( navigator.userAgent ) ){
+        setTimeout( function(){
+          window.removeEventListener("resize", setRemUnit);
+        }, 1000)
+      }
+    }())
+  </script>
+
+  <div class="responsive-container">
+    <div class="channel-info">
+      <div class="channel-icon"></div>
+      <div class="channel-name"></div>
+      <!-- <div class="channel-button">进入频道</div> -->
+    </div>
+    <div class="channel-body"></div>
+    <div id="sense-template" style="display:none">
+      <div class="sense-wrapper text-photo">
+        <div class="user-info">
+          <div class="user-avatar"></div>
+          <div class="user-name"></div>
+          <div class="user-date"></div>
+        </div>
+        <div class="sense-content">
+          <div class="sense-image"></div>
+          <div class="sense-text"></div>
+        </div>
+        <div class="sense-info">
+          <div class="sense-likes"></div>
+          <div class="sense-views"></div>
+        </div>
+      </div>
+      <div class="sense-wrapper music">
+        <div class="user-info">
+          <div class="user-avatar"></div>
+          <div class="user-name"></div>
+          <div class="user-date"></div>
+        </div>
+        <div class="music-wrapper">
+          <div class="music-cover"></div>
+          <div class="music-info">
+            <div class="music-info-label">表演者</div>
+            <div class="music-info-artist"></div>
+            <div class="music-info-label">曲目</div>
+            <div class="music-info-track"></div>
+          </div>
+        </div>
+        <div class="sense-text"></div>
+        <div class="sense-info">
+          <div class="sense-likes"></div>
+          <div class="sense-views"></div>
+        </div>
+      </div>
+      <div class="sense-wrapper movie">
+        <div class="user-info">
+          <div class="user-avatar"></div>
+          <div class="user-name"></div>
+          <div class="user-date"></div>
+        </div>
+        <div class="movie-wrapper"><img class="movie-cover">
+          <div class="movie-info-wrapper">
+            <div class="movie-info">
+              <div class="movie-info-label">片名</div>
+              <div class="movie-info-title"></div>
+              <div class="movie-info-label">导演</div>
+              <div class="movie-info-director"></div>
+              <div class="movie-info-label">演员</div>
+              <div class="movie-info-actor"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sense-text"></div>
+        <div class="sense-info">
+          <div class="sense-likes"></div>
+          <div class="sense-views"></div>
+        </div>
+      </div>
+      <div class="sense-wrapper vote">
+        <div class="user-info">
+          <div class="user-avatar"></div>
+          <div class="user-name"></div>
+          <div class="user-date"></div>
+        </div>
+        <div class="sense-content">
+          <div class="sense-image"></div>
+          <div class="sense-text"></div>
+        </div>
+        <div class="sense-vote-container">
+        </div>
+        <div class="sense-info">
+          <div class="sense-vote-total"></div>
+        </div>
+      </div>
+      <div class="sense-wrapper sticker">
+        <div class="user-info">
+          <div class="user-avatar"></div>
+          <div class="user-name"></div>
+          <div class="user-date"></div>
+        </div>
+        <div class="sense-content">
+          <div class="sense-image"></div>
+          <div class="sticker-text"></div>
+        </div>
+        <div class="sense-info">
+          <div class="sense-likes"></div>
+          <div class="sense-views"></div>
+        </div>
+      </div>
+      <div class="sense-wrapper product">
+        <div class="sense-header">
+          <div class="product-title"></div>
+        </div>
+        <div class="pictures-wrapper">
+          <div class="pictures-container"></div>
+          <div class="pictures-page-control-wrapper">
+            <div class="pictures-page-control">
+            </div>
+          </div>
+        </div>
+        <div class="product-description"></div>
+        <div class="sense-info">
+          <div class="count-remaining"></div>
+          <div class="price-button">
+            <div class="price-wrapper">
+              <div class="price-big"></div><div class="price-small"></div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--     <div id="footer-share">
+      <div class="content"></div>
+      <div class="copyright">Copyright © 2014 ohsame.com Inc. All Rights Reserved.</div>
+    </div>
+    <div id="share-banner">
+      <div class="share-banner-flex-wrapper">
+        <div class="share-banner-image"></div><a href="http://analytics.ohsame.com/download?type=%E5%88%86%E4%BA%AB" class="share-banner-download">立即下载</a>
+      </div>
+    </div>
+ -->
+  </div>
+  <script type="text/javascript">
+    function isPositionStickySupported(elem) {
+      return elem.css('position') === 'sticky' || elem.css('position') === '-webkit-sticky';
+    }
+    
+    function isCssFilterSupported() {
+      return typeof document.body.style.webkitFilter === "string"
+      //- return elem.css('filter') === 'blur(16px)' || elem.css('-webkit-filter') === 'blur(16px)';
+    }
+    
+    function isCssBackdropFilterSupported() {
+      return typeof document.body.style.webkitBackdropFilter === "string"
+    }
+    if(isPositionStickySupported($(".channel-info")) === false){
+      $(".responsive-container").addClass("no-sticky");
+    }
+    
+    if( isCssBackdropFilterSupported() ){
+      document.querySelector(".channel-info").classList.add("blur")
+      document.querySelector("#share-banner").classList.add("blur")
+    }
+    
+    function loadScript(url, callback){
+      var head = document.getElementsByTagName('head')[0];
+      if(typeof url === "string"){
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        script.onreadystatechange = callback;
+        script.onload = callback;
+        head.appendChild(script);
+      }else if(typeof url === "object"){
+        var count = 0;
+        for(var n in url){
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url[n];
+          script.onreadystatechange = if_onload;
+          script.onload = if_onload;
+          head.appendChild(script);
+        }
+        function if_onload(){
+          count++;
+          if(count === url.length){
+            callback();
+          }
+        }
+      }
+    }
+  </script>
+  <script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>

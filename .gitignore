@@ -1,0 +1,4 @@
+/node-modules
+/config
+.data.json
+.getData.js

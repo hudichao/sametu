@@ -1,0 +1,16 @@
+{
+  "name": "sametu",
+  "version": "0.0.1",
+  "description": "Beatiful gir pictures from web",
+  "main": "server.js",
+  "author": "hu.dichao@qq.com",
+  "dependencies": {
+    "express": "~4.13.4",
+    "mysql": "*",
+    "body-parser": "~1.4.3",
+    "method-override": "~2.1.1"
+  },
+  "devDependencies": {
+    "cron": "^1.1.0"
+  }
+}
