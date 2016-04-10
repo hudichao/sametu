@@ -29,7 +29,7 @@ var getData = (cb) => {
     console.log("成功连接到数据库");
   });
 
-  con.query("SELECT * from topics WHERE s_likes > 10 and s_photo is not NULL  order by s_created_at desc LIMIT 200 ", (err, rows) => {
+  con.query("SELECT * from topics WHERE s_likes > 3 and s_photo is not NULL  order by s_created_at desc LIMIT 200 ", (err, rows) => {
     if (err) throw err;
     console.log("从数据库接受数据\n");
     cb(err, rows);
