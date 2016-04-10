@@ -35,14 +35,32 @@ var getData = (cb) => {
     cb(err, rows);
   });
 }
+
+function getClientIp(req) {
+  return req.headers['x-forwarded-for'] || 
+       req.connection.remoteAddress || 
+       req.socket.remoteAddress ||
+       req.connection.socket.remoteAddress;
+}
+function getFullUrl(req) {
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  return fullUrl;
+}
+function myLog(req, res) {
+  console.log(res);
+  console.log("ip: " +  getClientIp(req) + " 访问 " + getFullUrl(req));
+}
 //如果是angular的话可用app.get("*")
 app.get("/", (req, res) => {
   res.sendFile("./public/index.html");
+  myLog(req, res);
 })
 app.get("/api/topics", (req, res) => {
   getData((err,result)=> {
     if (err) res.send(err);
     res.json(result);
+    myLog(req, res);
+
   })
 })
 app.listen(1234);

@@ -5,10 +5,11 @@
   "main": "server.js",
   "author": "hu.dichao@qq.com",
   "dependencies": {
-    "express": "~4.13.4",
-    "mysql": "*",
     "body-parser": "~1.4.3",
-    "method-override": "~2.1.1"
+    "express": "~4.13.4",
+    "log4js": "^0.6.33",
+    "method-override": "~2.1.1",
+    "mysql": "*"
   },
   "devDependencies": {
     "cron": "^1.1.0"
